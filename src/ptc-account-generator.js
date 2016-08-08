@@ -9,6 +9,9 @@ const GUERRILLAMAIL_HOST = 'sharklasers.com';
 const API_ENDPOINT = 'https://club.pokemon.com/us/pokemon-trainer-club/sign-up/';
 const MAILFETCH_ATTEMPTS = 200;
 
+
+
+
 function rand(min, max, n = 1) {
   const rand = (Math.floor(Math.random() * (max - min + 1)) + min) + '';
   return rand.length >= n ? rand : new Array(n - rand.length + 1).join('0') + rand;
@@ -17,6 +20,7 @@ function rand(min, max, n = 1) {
 function getUsername() {
   const name = random_name();
   return `${name.replace(/ /g, '')}${rand(0, 9999)}`;
+
 }
 
 export default async function (newConfig = {}) {
@@ -30,7 +34,7 @@ export default async function (newConfig = {}) {
   const config = {
     email,
     username,
-    password: `P${username}`,
+    password: `Password1`,
     date_of_birdth: `${rand(1975, 2000, 4)}-${rand(1, 12, 2)}-${rand(1, 30, 2)}`,
     ...newConfig,
     emailAccount,
@@ -92,4 +96,5 @@ export default async function (newConfig = {}) {
   console.log('Account succefully activated!');
   return config;
 }
+
 
