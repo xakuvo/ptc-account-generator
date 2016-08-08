@@ -9,6 +9,7 @@ var count = 0;
 
 while (count<=200){
   createAccount()
+  getAccount(count)
     .then(res => fs.appendFileSync(STORE_FILE, "\n\n" + JSON.stringify(res)))
     .catch(err => console.error(err));
 }
